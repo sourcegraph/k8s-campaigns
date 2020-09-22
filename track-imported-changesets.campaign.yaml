@@ -1,4 +1,6 @@
 name: track-imported-changesets
+description: This campaign tracks pull requests in `sourcegraph/*` repositories.
+
 importChangesets:
   - repository: github.com/sourcegraph/sourcegraph
     externalIDs: [13720, 13719, 13707, 13703, 8574]
