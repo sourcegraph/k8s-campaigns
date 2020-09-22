@@ -19,5 +19,4 @@ ns can have side-effect changes when we run `go fmt` at the end.+
     author:
       email: campaigns@sourcegraph.com
       name: Campaigns Team
-  published: true
-
+  published: false

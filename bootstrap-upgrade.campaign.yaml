@@ -1,6 +1,5 @@
 name: bootstrap-upgrade
-description: All our applications should look the same, so we want to make them all use the same version of bootstrap. This campaign opens up a joint-effort to make all those upgrades happ
-en in a short time span.                                        +
+description: All our applications should look the same, so we want to make them all use the same version of bootstrap. This campaign opens up a joint-effort to make all those upgrades happ en in a short time span.
 
 on:
   - repositoriesMatchingQuery: 'f:package.json "bootstrap": ".?4 patterntype:regexp -r:13k -r:ghe'
@@ -24,4 +23,3 @@ changesetTemplate:
       email: campaigns@sourcegraph.com
       name: Campaigns Team
   published: false
-
