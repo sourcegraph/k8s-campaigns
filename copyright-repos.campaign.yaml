@@ -1,0 +1,20 @@
+name: copyright-repos
+description: All our code should call out in the readme that it is property of Sourcegraph.
+
+# Find all repositories that contain a README.md file.
+on:
+  - repositoriesMatchingQuery: file:README.md r:sourcegraph -r:ghe -r:13k
+
+steps:
+  - run: printf "\n(c) Copyright Sourcegraph 2020." | tee -a $(find -name README.md)
+    container: alpine:3
+
+# Describe the changeset (e.g., GitHub pull request) you want for each repository.
+changesetTemplate:
+  title: Add copyright to README files
+  body: This adds a copyright statement to all the campaigns
+  branch: hello-world # Push the commit to this branch.
+  commit:
+    message: Append copyright message to all readme files.
+  published: false
+

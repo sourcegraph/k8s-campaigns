@@ -1,0 +1,21 @@
+name: remove-travis
+description: |
+  ### ⚠️ Deprecation of travis
+
+  As we want to phase out travis out of our organization, tracking the progress of removing all travis config files.
+
+on:
+  - repositoriesMatchingQuery: repohasfile:.travis.yml -r:13k -r:gitolite -r:kubernetes -r:amazonaws r:sourcegraph count:50 -r:ghe
+
+steps:
+  - run: find . -name .travis.yml | xargs rm
+    container: alpine:3
+
+changesetTemplate:
+  title: Remove travis configuration
+  body: This changeset removes travis as the CI provider from the repo. If you haven't migrated to our internal build tool yet, please do so ASAP and merge this PR.
+  branch: sourcegraph/remove-travis
+  commit:
+    message: Remove travis config file
+  published: false
+

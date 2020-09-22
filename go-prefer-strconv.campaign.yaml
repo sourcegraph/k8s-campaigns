@@ -1,0 +1,22 @@
+name: go-prefer-strconv
+description: |
+  Replaces all usages of fmt.Sprintf("%d", someVal) by strconv.Itoa(someVal). They are equivalent and are more precisely telling what happens.
+
+on:
+  - repositoriesMatchingQuery: -r:13k -r:gitolite r:sourcegraph -r:ghe
+
+steps:
+  - run: comby -in-place 'fmt.Sprintf("%d", :[value])' 'strconv.Itoa(:[value])' .go -matcher .go -exclude-dir .,vendor
+    container: comby/comby
+  # - run: gofmt -w ./
+  #   container: golang:1.15-alpine
+
+changesetTemplate:
+  title: Replace equivalent fmt.Sprintf calls with strconv.Itoa
+  body: This campaign replaces `fmt.Sprintf("%d", integer)` calls with semantically equivalent `strconv.Itoa` calls
+  branch: campaigns/sprintf-to-itoa
+  commit:
+    message: Replacing fmt.Sprintf with strconv.Iota
+  published: false
+
+

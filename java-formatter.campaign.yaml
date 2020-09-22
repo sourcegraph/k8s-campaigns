@@ -1,0 +1,22 @@
+name: java-formatter
+description: All our code should be formatted the same way, so it's easy to understand code within the whole organization. I propose using google java formatter.
+
+on:
+  - repositoriesMatchingQuery: lang:java r:sourcegraph -r:ghe -r:13k
+
+steps:
+  - run: |
+      apt-get update && apt-get install -y curl default-jre
+      curl -sLO https://github.com/google/google-java-format/releases/download/google-java-format-1.9/google-java-format-1.9-all-deps.jar
+      find . -name "*.java" | xargs -x java -jar google-java-format-1.9-all-deps.jar --replace
+      rm google-java-format-1.9-all-deps.jar
+    container: ubuntu:18.04
+
+changesetTemplate:
+  title: Format code according to Google Java Style
+  body: This runs Google Java Format over this repository, to find any discrepancies in code style, according to [Google Java Style](https://google.github.io/styleguide/javaguide.html)
+  branch: sourcegraph/google-java-format
+  commit:
+    message: Run Google Java Format
+  published: false
+

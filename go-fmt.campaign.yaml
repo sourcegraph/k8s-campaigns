@@ -1,0 +1,20 @@
+name: go-fmt
+description: |
+  Runs go fmt on all our repos, to find any repos that don't match the Go preferred codestyle.
+
+on:
+  - repositoriesMatchingQuery: -r:13k -r:gitolite r:sourcegraph -r:ghe -r:search-challenge -r:talks
+
+steps:
+  - run: gofmt -w ./
+    container: golang:1.15-alpine
+
+changesetTemplate:
+  title: Run go fmt
+  body: This is a changeset created by a campaign. It runs go fmt to make sure all our repos are following the Go preferred codestyle. When repos are out of sync with go fmt, other campaig
+ns can have side-effect changes when we run `go fmt` at the end.+
+  branch: campaigns/run-go-fmt
+  commit:
+    message: Run go fmt
+  published: true
+
