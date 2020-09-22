@@ -15,8 +15,11 @@ steps:
 changesetTemplate:
   title: Format code according to Google Java Style
   body: This runs Google Java Format over this repository, to find any discrepancies in code style, according to [Google Java Style](https://google.github.io/styleguide/javaguide.html)
-  branch: sourcegraph/google-java-format
+  branch: campaigns-team/google-java-format
   commit:
     message: Run Google Java Format
+    author:
+      email: campaigns@sourcegraph.com
+      name: Campaigns Team
   published: false
 

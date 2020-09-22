@@ -13,8 +13,11 @@ steps:
 changesetTemplate:
   title: Add copyright to README files
   body: This adds a copyright statement to all the campaigns
-  branch: hello-world # Push the commit to this branch.
+  branch: campaigns-team/hello-world # Push the commit to this branch.
   commit:
     message: Append copyright message to all readme files.
+    author:
+      email: campaigns@sourcegraph.com
+      name: Campaigns Team
   published: false
 

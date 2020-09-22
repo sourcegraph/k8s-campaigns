@@ -17,5 +17,8 @@ changesetTemplate:
   branch: sourcegraph/remove-travis
   commit:
     message: Remove travis config file
+    author:
+      email: campaigns@sourcegraph.com
+      name: Campaigns Team
   published: false
 

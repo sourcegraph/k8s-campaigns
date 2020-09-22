@@ -17,8 +17,11 @@ steps:
 changesetTemplate:
   title: Upgrade to bootstrap 5
   body: This upgrades the bootstrap version to v5. Please use this PR to make any adjustments, if necessary. It is tracked in a Souregraph campaign.
-  branch: sourcegraph/bootstrap-5
+  branch: campaigns-team/bootstrap-5
   commit:
     message: Upgrade bootstrap to v5
+    author:
+      email: campaigns@sourcegraph.com
+      name: Campaigns Team
   published: false
 

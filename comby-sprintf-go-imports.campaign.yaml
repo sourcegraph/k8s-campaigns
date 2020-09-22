@@ -4,7 +4,7 @@ description: |
   in Go code with the equivalent but clearer `strconv.Iota` call.
 
 on:
-  - repositoriesMatchingQuery: lang:go fmt.Sprintf("%d", :[v]) patterntype:structural -repo:gitlab
+  - repositoriesMatchingQuery: lang:go fmt.Sprintf("%d", :[v]) patterntype:structural -r:13k -r:gitolite r:sourcegraph -r:ghe
 
 steps:
   - run: comby -in-place 'fmt.Sprintf("%d", :[v])' 'strconv.Itoa(:[v])' .go -matcher .go -exclude-dir .,vendor
