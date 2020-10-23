@@ -35,4 +35,4 @@ changesetTemplate:
   commit:
     message: Update golang base images in Dockerfiles to 1.15
   published:
-    - ghe.sgdev.org*: true
+    - github.com*: draft
