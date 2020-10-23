@@ -34,4 +34,5 @@ changesetTemplate:
   branch: campaigns/golang-15-base-images # Push the commit to this branch.
   commit:
     message: Update golang base images in Dockerfiles to 1.15
-  published: false
+  published:
+    ghe.sgdev.org*: true
