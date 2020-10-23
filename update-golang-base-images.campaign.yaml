@@ -4,9 +4,9 @@ description: This campaign updates the golang builder images in Dockerfiles to G
 on:
   # Find all repositories that contain Dockerfiles with `FROM golang:1.MINOR-alpine [...]` in it,
   # where the MINOR version can be 10 to 14.
-  - repositoriesMatchingQuery: FROM golang:1.1:[minor~[0-4]]-alpine file:Dockerfile patternType:structural 
+  - repositoriesMatchingQuery: FROM golang:1.1:[minor~[0-4]]-alpine file:Dockerfile patternType:structural -repo:gitolite
   # and optionally specify a sha256 hash 
-  - repositoriesMatchingQuery: FROM golang:1.1:[minor~[0-4]]-alpine@sha256::[hash~[a-f0-9]+] file:Dockerfile patternType:structural 
+  - repositoriesMatchingQuery: FROM golang:1.1:[minor~[0-4]]-alpine@sha256::[hash~[a-f0-9]+] file:Dockerfile patternType:structural -repo:gitolite
 
 # In each repository
 steps:
